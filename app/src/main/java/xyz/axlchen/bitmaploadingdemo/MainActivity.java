@@ -20,23 +20,30 @@ public class MainActivity extends ListActivity {
         super.onCreate(savedInstanceState);
 
         List<Map<String, String>> data = new ArrayList<>();
-        Map map1 = new HashMap();
-        map1.put("path", "SD卡加载图片");
 
-        Map map2 = new HashMap();
-        map2.put("path", "drawable-mdpi目录加载图片");
+        Map<String, String> map1 = new HashMap();
+        map1.put("path", "从SD卡加载图片");
 
-        Map map3 = new HashMap();
-        map3.put("path", "drawable-hdpi目录加载图片");
+        Map<String, String> map2 = new HashMap();
+        map2.put("path", "从assets目录加载图片");
 
-        Map map4 = new HashMap();
-        map4.put("path", "drawable-xhdpi目录加载图片");
+        Map<String, String> map3 = new HashMap();
+        map3.put("path", "从drawable目录加载图片");
 
-        Map map5 = new HashMap();
-        map5.put("path", "drawable-xxhdpi目录加载图片");
+        Map<String, String> map4 = new HashMap();
+        map4.put("path", "从drawable-mdpi目录加载图片");
 
-        Map map6 = new HashMap();
-        map6.put("path", "drawable-xxxhdpi目录加载图片");
+        Map<String, String> map5 = new HashMap();
+        map5.put("path", "从drawable-hdpi目录加载图片");
+
+        Map<String, String> map6 = new HashMap();
+        map6.put("path", "从drawable-xhdpi目录加载图片");
+
+        Map<String, String> map7 = new HashMap();
+        map7.put("path", "从drawable-xxhdpi目录加载图片");
+
+        Map<String, String> map8 = new HashMap();
+        map8.put("path", "从drawable-xxxhdpi目录加载图片");
 
         data.add(map1);
         data.add(map2);
@@ -44,6 +51,8 @@ public class MainActivity extends ListActivity {
         data.add(map4);
         data.add(map5);
         data.add(map6);
+        data.add(map7);
+        data.add(map8);
 
         ListAdapter adapter = new SimpleAdapter(this, data,
                 android.R.layout.simple_list_item_1, new String[]{"path"},
@@ -59,18 +68,24 @@ public class MainActivity extends ListActivity {
                 intent.putExtra("type", "sd");
                 break;
             case 1:
-                intent.putExtra("type", "mdpi");
+                intent.putExtra("type", "assets");
                 break;
             case 2:
-                intent.putExtra("type", "hdpi");
+                intent.putExtra("type", "");
                 break;
             case 3:
-                intent.putExtra("type", "xhdpi");
+                intent.putExtra("type", "mdpi");
                 break;
             case 4:
-                intent.putExtra("type", "xxhdpi");
+                intent.putExtra("type", "hdpi");
                 break;
             case 5:
+                intent.putExtra("type", "xhdpi");
+                break;
+            case 6:
+                intent.putExtra("type", "xxhdpi");
+                break;
+            case 7:
                 intent.putExtra("type", "xxxhdpi");
                 break;
             default:
