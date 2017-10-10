@@ -1,6 +1,7 @@
 package xyz.axlchen.bitmaploadingdemo;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListAdapter;
@@ -35,7 +36,7 @@ public class MainActivity extends ListActivity {
         map5.put("path", "drawable-xxhdpi目录加载图片");
 
         Map map6 = new HashMap();
-        map6.put("path", "drawable-xxhdpi目录加载图片");
+        map6.put("path", "drawable-xxxhdpi目录加载图片");
 
         data.add(map1);
         data.add(map2);
@@ -52,6 +53,28 @@ public class MainActivity extends ListActivity {
 
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
-
+        Intent intent = new Intent(this, DisplayActivity.class);
+        switch (position) {
+            case 0:
+                intent.putExtra("type", "sd");
+                break;
+            case 1:
+                intent.putExtra("type", "mdpi");
+                break;
+            case 2:
+                intent.putExtra("type", "hdpi");
+                break;
+            case 3:
+                intent.putExtra("type", "xhdpi");
+                break;
+            case 4:
+                intent.putExtra("type", "xxhdpi");
+                break;
+            case 5:
+                intent.putExtra("type", "xxxhdpi");
+                break;
+            default:
+        }
+        startActivity(intent);
     }
 }
