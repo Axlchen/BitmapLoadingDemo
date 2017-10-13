@@ -48,7 +48,19 @@ public class DisplayActivity extends AppCompatActivity {
         } else if (type.equals("xxxhdpi")) {
             bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.model_xxxhdpi, options);
         }
+
         img.setImageBitmap(bitmap);
-        txt.setText(bitmap.getByteCount() + " byte");
+
+        StringBuilder builder = new StringBuilder();
+        builder.append("内存占用: " + bitmap.getByteCount() + " byte\n");
+        builder.append("width: " + bitmap.getWidth() + "\n");
+        builder.append("height: " + bitmap.getHeight() + "\n");
+        builder.append("inPreferredConfig: " + options.inPreferredConfig.toString() + "\n");
+        builder.append("inSampleSize: " + options.inSampleSize + "\n");
+        builder.append("inDensity: " + options.inDensity + "\n");
+        builder.append("inTargetDensity: " + options.inTargetDensity + "\n");
+        builder.append("inScaled: " + options.inScaled + "\n");
+
+        txt.setText(builder.toString());
     }
 }
